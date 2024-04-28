@@ -1,25 +1,25 @@
-project(process)
+project(show_result)
 
 # 添加动态库
 add_library(${PROJECT_NAME}
 SHARED
-process.cpp
+show_result.cpp
 )
 
 # 添加包含路径
 target_include_directories(${PROJECT_NAME}
 PUBLIC
-${PNC_Map_Dir}
+${Process_Dir}
 )
 
 # 添加动态库
 target_link_libraries(${PROJECT_NAME}
 PUBLIC
-pnc_map
+process
 )
 
-# 添加第三方库
-target_link_libraries(${PROJECT_NAME}
+# 添加第三方库（位置在MinGW目录下）
+target_link_directories(${PROJECT_NAME}
 PUBLIC
-Eigen3::Eigen
+easyx
 )

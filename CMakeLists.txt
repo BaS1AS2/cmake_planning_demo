@@ -16,6 +16,17 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 # 设置子目录路径
 set(Process_Dir ${CMAKE_SOURCE_DIR}/src/process)
 set(PNC_Map_Dir ${CMAKE_SOURCE_DIR}/src/pnc_map)
+set(Show_Result_Dir ${CMAKE_SOURCE_DIR}/src/show_result)
+
+# 三方库
+set(EIGEN3_INCLUDE_DIR "D:/ProgramData/eigen-git-mirror-master")
+list(APPEND CMAKE_MODULE_PATH "${EIGEN3_INCLUDE_DIR}/cmake")
+message("CMAKE_MODULE_PATH = ${CMAKE_MODULE_PATH}")
+
+find_package(Eigen3 REQUIRED)
+if(TARGET Eigen3::Eigen)
+    message(STATUS "***** Eigen3 found in ${EIGEN3_INCLUDE_DIR} *****")
+endif()
 
 # 添加子目录
 add_subdirectory(src)
